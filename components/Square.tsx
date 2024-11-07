@@ -2,9 +2,9 @@ import React from 'react';
 import { TouchableOpacity, Text, StyleSheet, View } from 'react-native';
 
 interface SquareProps {
-  value: string | null;  // Valor da célula (X, O ou null)
-  onPress: () => void;  // Função chamada ao clicar na célula
-  isWinning?: boolean;  // Prop para saber se é parte da linha vencedora
+  value: string | null;  
+  onPress: () => void;  
+  isWinning?: boolean;  
 }
 
 const Square: React.FC<SquareProps> = ({ value, onPress, isWinning }) => {
@@ -29,8 +29,8 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   winningSquare: {
-    backgroundColor: 'red',  // Destacar a célula vencedora com um fundo amarelo
-    borderColor: 'green',       // Alterar a borda para verde
+    backgroundColor: 'red',  
+    borderColor: 'green',      
   },
 });
 
