@@ -7,19 +7,19 @@ const Game: React.FC = () => {
   const [isXNext, setIsXNext] = useState<boolean>(true);
   const [winner, setWinner] = useState<string | null>(null);
   const [isGameOver, setIsGameOver] = useState<boolean>(false);
-  const [winningLine, setWinningLine] = useState<number[] | null>(null);  // Linha vencedora
+  const [winningLine, setWinningLine] = useState<number[] | null>(null);  
 
   const checkWinner = (board: (string | null)[]) => {
     const lines = [
-      [0, 1, 2], [3, 4, 5], [6, 7, 8],  // Horizontais
-      [0, 3, 6], [1, 4, 7], [2, 5, 8],  // Verticais
-      [0, 4, 8], [2, 4, 6]               // Diagonais
+      [0, 1, 2], [3, 4, 5], [6, 7, 8], 
+      [0, 3, 6], [1, 4, 7], [2, 5, 8], 
+      [0, 4, 8], [2, 4, 6]              
     ];
 
     for (let i = 0; i < lines.length; i++) {
       const [a, b, c] = lines[i];
       if (board[a] && board[a] === board[b] && board[a] === board[c]) {
-        return { winner: board[a], line: [a, b, c] };  // Retorna a linha vencedora
+        return { winner: board[a], line: [a, b, c] }; 
       }
     }
 
@@ -43,7 +43,7 @@ const Game: React.FC = () => {
         setWinner('Empate');
       } else {
         setWinner(result.winner);
-        setWinningLine(result.line);  // Armazenando a linha vencedora
+        setWinningLine(result.line); 
         Alert.alert(`${result.winner} venceu!`);
       }
       setIsGameOver(true);
@@ -57,7 +57,7 @@ const Game: React.FC = () => {
     setIsXNext(true);
     setWinner(null);
     setIsGameOver(false);
-    setWinningLine(null);  // Limpa a linha vencedora
+    setWinningLine(null); 
   };
 
   return (
@@ -69,7 +69,7 @@ const Game: React.FC = () => {
       <GameBoard 
         board={board} 
         onSquarePress={handleSquarePress} 
-        winningLine={winningLine}  // Passando a linha vencedora para o GameBoard
+        winningLine={winningLine}  
       />
 
       {winner && (
